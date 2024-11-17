@@ -10,11 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const book = data.book_array.find(b => b.book_title === bookTitle);
             
             if (book) {
-                // Update page elements with book details
+
                 document.querySelector('.title').textContent = book.book_title;
                 document.querySelector('.poster img').src = book.image;
                 document.querySelector('.description').textContent = book.content;
-                // Add more details as needed
+
             }
         })
         .catch(error => console.error('Error fetching book details:', error));
