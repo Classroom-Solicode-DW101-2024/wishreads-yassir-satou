@@ -1,21 +1,32 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Get the book title from URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const bookTitle = urlParams.get('bookTitle');
+document.addEventListener("DOMContentLoaded", () => {
+  const clickableImages = document.querySelectorAll(
+    ".books img, .world_book img"
+  );
 
-    // Fetch book data
-    fetch('/assets/books data/books.json')
-        .then(response => response.json())
-        .then(data => {
-            const book = data.book_array.find(b => b.book_title === bookTitle);
-            
-            if (book) {
+  clickableImages.forEach((img) => {
+    img.addEventListener("click", () => {
+      const bookTitle = img.getAttribute("data-title");
 
-                document.querySelector('.title').textContent = book.book_title;
-                document.querySelector('.poster img').src = book.image;
-                document.querySelector('.description').textContent = book.content;
+      fetch("/assets/books data/books.json")
+        .then((response) => response.json())
+        .then((data) => {
+          const book = data.book_array.find((b) => b.book_title === bookTitle);
 
-            }
+          if (book) {
+            document.querySelector(".title").textContent = book.book_title;
+            document.querySelector(".poster img").src = book.image;
+            document.querySelector(".description").textContent = book.content;
+
+            const pdfButton = document.querySelector(".read-btn");
+            pdfButton.textContent = "READ BOOK";
+            pdfButton.onclick = () => {
+              window.open(book.pdf_link, "_blank");
+            };
+          } else {
+            console.error("Book not found in data.");
+          }
         })
-        .catch(error => console.error('Error fetching book details:', error));
+        .catch((error) => console.error("Error fetching book details:", error));
+    });
+  });
 });
