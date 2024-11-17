@@ -433,3 +433,63 @@ main {
   background-color: var(--rich-black-fogra-39);
   color: var(--citrine);
 }
+summary {
+  background-image: url(/imgs/cta-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 170px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  gap: 30px;
+}
+
+.text_select h5 {
+  font-size: 18px;
+  margin: 0;
+  color: var(--black);
+}
+
+.text_select p {
+  font-size: 14px;
+  margin: 5px 0 0;
+  color: var(--black);
+}
+
+aside {
+  display: flex;
+  align-items: center;
+}
+
+aside input {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+aside button {
+  padding: 8px 12px;
+  font-size: 14px;
+  background-color: var(--rich-black-fogra-39);
+  color: var(--citrine);
+  border: 1px solid --white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+aside button:hover {
+  background-color: var(--white);
+  color: var(--eerie-black);
+}
