@@ -45,6 +45,25 @@
 body,
 html {
   height: 100%;
+  cursor: url('/path/to/your/cursor-image.png'), auto;
+  scroll-behavior: smooth;
+
+}
+::-webkit-scrollbar {
+  width: 12px; 
+}
+
+::-webkit-scrollbar-track {
+  background: var(--rich-black-fogra-39);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--citrine); 
+  border-radius: 10px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--white); 
 }
 
 .hero-image {
@@ -435,6 +454,7 @@ main {
 summary {
   background-image: url(/imgs/cta-bg.jpg);
   background-size: cover;
+  background-blend-mode: darken;
   background-position: center;
   height: 170px;
   width: 100%;
@@ -444,6 +464,7 @@ summary {
   padding: 20px;
   box-sizing: border-box;
 }
+
 
 .select {
   display: flex;
