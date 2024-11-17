@@ -45,7 +45,6 @@
 body,
 html {
   height: 100%;
-  background-color: var(--rich-black-fogra-29);
 }
 
 .hero-image {
@@ -166,17 +165,21 @@ nav a.active {
   color: black;
 }
 main {
-  padding: 60px 40px;
   border-radius: 20px;
   position: relative;
-  margin: 0 100px;
 }
-
-.head_main {
+.bg_main {
   display: flex;
+  padding: 60px 40px;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+}
+.head_main {
+  background-image: url("/imgs/upcoming-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .headmain_texts p {
@@ -257,11 +260,16 @@ main {
   transition: background-color var(--transition-1),
     transform var(--transition-1);
 }
-
-.top_books {
+.bg_top_books {
   padding: 60px 40px;
   margin: 0 100px;
   text-align: center;
+}
+
+.top_books {
+  background-image: url(/imgs/top-rated-bg.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 .top_books_Head p {
@@ -374,9 +382,7 @@ main {
   padding: 40px;
 }
 .world_books {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
-    url(/imgs/bqckground3.png);
-  background-color: var(--rich-black-fogra-39);
+  background-image: url(/imgs/tv-series-bg.jpg);
   background-size: cover;
   background-position: center;
 }
