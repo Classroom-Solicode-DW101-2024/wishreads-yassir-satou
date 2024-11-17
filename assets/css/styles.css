@@ -315,7 +315,6 @@ main {
 
 .book {
   border-radius: 10px;
-  padding: 20px;
   text-align: center;
   transition: transform var(--transition-2);
 }
@@ -484,7 +483,7 @@ aside button {
   font-size: 14px;
   background-color: var(--rich-black-fogra-39);
   color: var(--citrine);
-  border: 1px solid --white;
+  border: 5px solid --white;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -492,4 +491,109 @@ aside button {
 aside button:hover {
   background-color: var(--white);
   color: var(--eerie-black);
+}
+footer {
+  background-color: #121212;
+  color: #fff;
+  padding: 20px 40px;
+  font-family: Arial, sans-serif;
+}
+
+.nav_footer {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 1.2rem;
+}
+
+.nav_footer a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.nav_footer a:hover {
+  color: #ffc107;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #444;
+  margin: 20px 0;
+}
+
+.footer_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.left_footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.left_footer ol {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.left_footer ol li {
+  cursor: pointer;
+  color: #ccc;
+}
+
+.left_footer ol li:hover {
+  color: #fff;
+}
+
+.left_footer p {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.left_footer span {
+  color: #ffc107;
+}
+
+.right_footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.social_icons {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+.social_icons li {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.3s ease;
+}
+
+.social_icons li:hover {
+  color: #ffc107;
+}
+
+.payment_methods {
+  display: flex;
+  gap: 10px;
+}
+
+.payment_methods img {
+  width: 200px;
+  height: 50px;
+  height: auto;
 }
