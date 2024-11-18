@@ -402,21 +402,23 @@ main {
   float: right;
 }
 
-.book button {
-  padding: 7px 20px;
+.pdf-button {
+  display: inline-block;
+  margin-right: 110px;
+  padding: 7px 12px;
   background-color: transparent;
   color: var(--citrine);
-  border: 2px solid white;
   font-weight: bold;
+  border: 2px solid var(--white);
   cursor: pointer;
-  float: left;
-  transition: background-color var(--transition-1);
+  border-radius: 5px;
 }
 
-.book button:hover {
+.pdf-button:hover {
   background-color: var(--white);
   color: var(--citrine);
 }
+
 .best_books {
   padding: 60px 40px;
   margin: 0 100px;
