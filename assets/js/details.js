@@ -19,10 +19,19 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
+      // Ensure the image path is correctly resolved
+      const imagePath = book.image.startsWith('/') 
+        ? book.image 
+        : '/' + book.image;
+
       document.querySelector(".title").textContent = book.book_title;
       document.querySelector(".description").textContent = book.content;
-      document.querySelector(".img").src = book.image;
-      document.querySelector(".image").alt = book.book_title;
+      
+      // Use the corrected image path
+      const imgElement = document.querySelector(".img");
+      imgElement.src = imagePath;
+      imgElement.alt = book.book_title;
+
       document.querySelector(".read-btn").onclick = () =>
         window.open(book.pdf_link, "_blank");
     })
