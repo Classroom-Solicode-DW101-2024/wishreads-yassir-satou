@@ -25,7 +25,11 @@
       </nav>
 
       <div class="navbar">
-        <i class="fa-solid fa-magnifying-glass"></i>
+        <div class="box">
+          <form name="search">
+              <input type="text" class="input" name="txt" onmouseout="this.value = ''; this.blur();">
+          </form>
+          <i class="fas fa-search"></i>
         <button>SIGN IN</button>
       </div>
     </header>

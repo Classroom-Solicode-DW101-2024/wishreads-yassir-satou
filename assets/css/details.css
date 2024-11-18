@@ -99,6 +99,48 @@ nav a.active {
 .navbar i {
   cursor: pointer;
 }
+.box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 180px;
+  height: 40px; /* Adjusted to match navbar height */
+  background: transparent;
+  border: 2px solid var(--citrine);
+  border-radius: 20px;
+  box-sizing: border-box;
+  font-family: var(--ff-poppins);
+  font-size: var(--fs-7);
+  color: var(--white);
+  outline: none;
+  padding: 0 15px;
+ 
+}
+
+.box:hover .input {
+  background: var(--gunmetal-1);
+}
+
+.box i {
+  position: absolute;
+  right: px;
+  color: var(--citrine);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  margin-left: 2rem;
+  position: fixed;
+}
+
+.box:hover i {
+  opacity: 0.7;
+  display: none;
+}
+.box i.active{
+  display: none;
+}
 
 .logo img {
   height: 50px;
