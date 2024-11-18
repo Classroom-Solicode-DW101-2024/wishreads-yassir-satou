@@ -1,47 +1,74 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Get book title from URL
   const urlParams = new URLSearchParams(window.location.search);
   const bookTitle = urlParams.get("bookTitle");
 
-  if (!bookTitle) {
-    alert("Book title not found in URL!");
+  // Normalize book title (handle potential URL encoding or slight variations)
+  const normalizedBookTitle = bookTitle ? decodeURIComponent(bookTitle.trim()) : null;
+
+  if (!normalizedBookTitle) {
+    alert("No book title provided!");
     return;
   }
 
+  // Fetch book data
   fetch("/assets/js/data.json")
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
     .then((data) => {
-      const book = data[bookTitle];
+      // Try to find the book, handling potential case or spacing variations
+      const book = Object.keys(data).find(key => 
+        key.toLowerCase() === normalizedBookTitle.toLowerCase()
+      );
 
       if (!book) {
-        alert("Book not found!");
+        alert(`Book "${normalizedBookTitle}" not found!`);
         return;
       }
 
-      // Update page elements with book details
-      document.querySelector(".title").textContent = bookTitle;
-      document.querySelector(".description").textContent = book.description;
-      document.querySelector(".img").src = book.image;
-      
+      // Get the book details
+      const bookDetails = data[book];
+
+      // Update page elements
+      document.querySelector(".title").textContent = book;
+      document.querySelector(".description").textContent = bookDetails.description;
+      document.querySelector(".img").src = bookDetails.image;
+
       // Update genres
       const genreContainer = document.querySelector(".tags");
-      const genreSpans = genreContainer.querySelectorAll(".genre");
+      const genreElements = genreContainer.querySelectorAll(".genre");
       
-      // Clear existing genres
-      genreSpans.forEach((span, index) => {
-        if (index < book.genres.length) {
-          span.textContent = book.genres[index] + (index < book.genres.length - 1 ? ',' : '');
+      // Clear and update genres
+      genreElements.forEach((el, index) => {
+        if (bookDetails.genres[index]) {
+          el.textContent = bookDetails.genres[index] + (index < bookDetails.genres.length - 1 ? ',' : '');
         } else {
-          span.textContent = '';
+          el.textContent = '';
         }
       });
 
       // Update year
       const yearSpan = document.querySelector(".year");
-      yearSpan.textContent = book.year;
+      yearSpan.textContent = bookDetails.year;
 
-      // Set up read button
-      document.querySelector(".read-btn").onclick = () =>
-        window.open(book.pdfLink, "_blank");
+      // Set up read and view link buttons
+      const readBtn = document.querySelector(".read-btn");
+      const viewLinkBtn = document.querySelector(".view-link");
+
+      if (readBtn) {
+        readBtn.onclick = () => window.open(bookDetails.pdfLink, "_blank");
+      }
+
+      if (viewLinkBtn) {
+        viewLinkBtn.onclick = () => window.open(bookDetails.pdfLink, "_blank");
+      }
     })
-    .catch((error) => console.error("Error fetching data:", error));
+    .catch((error) => {
+      console.error("Error fetching book details:", error);
+      alert("Failed to load book details. Please try again later.");
+    });
 });
