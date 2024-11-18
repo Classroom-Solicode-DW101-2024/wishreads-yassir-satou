@@ -1,81 +1,92 @@
+
 {
-  "book_array": [
-    {
-      "book_title": "Outlander",
-      "image": "/imgs/Books/Outlander (Diana Gabaldon).jpg",
-      "author": "Diana Gabaldon",
-      "content": "Outlander follows the story of Claire Randall, a World War II combat nurse who is mysteriously transported back in time to 18th century Scotland, where she becomes entangled in the Jacobite risings and a passionate love story with a Highland warrior.",
-      "pdf_link": "https://static.fnac-static.com/multimedia/PT/pdf/9781784751371.pdf"
-    },
-    {
-      "book_title": "Rich Dad Poor Dad",
-      "image": "/imgs/Books/Rich Dad Poor Dad (Robert Kiyosaki)",
-      "author": "Robert Kiyosaki",
-      "content": "Rich Dad Poor Dad explores the differences between two fathers – one wealthy and one poor – and how their approaches to money and life shaped the author's financial understanding. It offers life-changing lessons on financial independence and investing.",
-      "pdf_link": "https://www.docdroid.net/Incp3Kq/rich-dad-poor-dad-pdf"
-    },
-    {
-      "book_title": "War and Peace",
-      "image": "/imgs/Books/War and Peace (Leo Tolstoy)",
-      "author": "Leo Tolstoy",
-      "content": "*War and Peace* by Leo Tolstoy is an epic novel blending history, philosophy, and fiction. It explores Russian society during the Napoleonic Wars, following aristocratic families, love, loss, and personal growth, while questioning destiny, morality, and human purpose.",
-      "pdf_link": "https://antilogicalism.com/wp-content/uploads/2017/07/war-and-peace.pdf"
-    },
-    {
-      "book_title": "The Great Gatbsy",
-      "image": "/imgs/Worl Books/The Great Gatsby (F. Scott Fitzgerald)",
-      "author": "Scott Fitzgerald",
-      "content": "The Great Gatsby by F. Scott Fitzgerald portrays the Jazz Age's glamour and disillusionment. Through Nick Carraway's eyes, it unveils Jay Gatsby's obsessive love for Daisy Buchanan, exploring themes of wealth, ambition, and the elusive American Dream's corruption.",
-      "pdf_link": "https://www.planetebook.com/free-ebooks/the-great-gatsby.pdf"
-    },
-    {
-      "book_title": "The Catcher in the Rye",
-      "image": "/imgs/Books/The Catcher in the Rye (J.D. Salinger)",
-      "author": "J.D. Salinger",
-      "content": "The Catcher in the Rye narrates the life of Holden Caulfield, a disillusioned teenager in New York City who is grappling with the pain of growing up and the complexities of adult society.",
-      "pdf_link": "https://giove.isti.cnr.it/demo/eread/Libri/sad/Rye.pdf"
-    },
-    {
-      "book_title": "To Kill a Mockingbird",
-      "image": "/imgs/Books/To kill a Mockingbird (Harper Lee)",
-      "author": "Harper Lee",
-      "content": "Set in the Depression-era South, To Kill a Mockingbird follows young Scout Finch as she witnesses her father, lawyer Atticus Finch, defend a black man accused of raping a white woman, exploring themes of racial injustice and moral growth.",
-      "pdf_link": "https://www.raio.org/TKMFullText.pdf"
-    },
-    {
-      "book_title": "The Hobbit",
-      "image": "/imgs/Worl Books/The Hobbit (J.R.R. Rolkien)",
-      "author": "J.R.R. Tolkien",
-      "content": "The Hobbit is a high fantasy adventure that follows Bilbo Baggins, a hobbit who is swept into an epic quest to reclaim the Lonely Mountain and its treasure from the dragon Smaug. Along the way, he encounters trolls, elves, goblins, and an enchanted ring.",
-      "pdf_link": "https://rsd2-alert-durden-reading-room.weebly.com/uploads/6/7/1/6/6716949/the_hobbit_tolkien.pdf"
-    },
-    {
-      "book_title": "The Alchemist",
-      "image": "/imgs/Worl Books/The Alchemist (Paulo Coelho)",
-      "author": "Paulo Coelho",
-      "content": "The Alchemist is an inspiring tale of Santiago, a shepherd boy who embarks on a journey to find a treasure hidden in the Egyptian pyramids, learning valuable life lessons along the way about following one's dreams and listening to one's heart.",
-      "pdf_link": "https://icrrd.com/public/media/15-05-2021-084550The-Alchemist-Paulo-Coelho.pdf"
-    },
-    {
-      "book_title": "Becoming",
-      "image": "/imgs/Books/Becoming (Michelle Obama)",
-      "author": "Michelle Obama",
-      "content": "Becoming is a memoir by former First Lady Michelle Obama, chronicling her life from her childhood in Chicago to her time in the White House, exploring her personal struggles, achievements, and the challenges of being a public figure.",
-      "pdf_link": "https://icrrd.com/public/media/15-05-2021-133541Becoming-Michelle-Obama.pdf"
-    },
-    {
-      "book_title": "The Secret",
-      "image": "/imgs/Books/The Secret (Rhonda Byrne)",
-      "author": "Rhonda Byrne",
-      "content": "The Secret explores the law of attraction and how positive thinking can bring happiness, success, and wealth. It emphasizes the power of visualization and belief in achieving one’s desires.",
-      "pdf_link": "https://archive.org/details/secret0000byrn_j4r8"
-    },
-    {
-      "book_title": "The Sand Child",
-      "image": "/imgs/Books/The sand child (Tahar Benjelloune)",
-      "author": "Tahar Ben Jelloun",
-      "content": "Set in Morocco, The Sand Child tells the story of a boy who grows up in a rural village and confronts the complexities of identity, family, and the changing world around him.",
-      "pdf_link": "https://www.scribd.com/document/396831539/OceanofPDF-com-the-Sand-Child-Tahar-Ben-Jelloun-2"
-    }
-  ]
+  "Outlander": {
+    "image": "/imgs/Books/Outlander (Diana Gabaldon)/Outlander.jpg",
+    "description": "Outlander follows the story of Claire Randall, a World War II combat nurse who is mysteriously transported back in time to 18th century Scotland, where she becomes entangled in the Jacobite risings and a passionate love story with a Highland warrior.",
+    "genres": ["Historical Fiction", "Romance", "Time Travel"],
+    "year": 1991,
+    "author": "Diana Gabaldon",
+    "pdfLink": "https://static.fnac-static.com/multimedia/PT/pdf/9781784751371.pdf"
+  },
+  "Rich Dad Poor Dad": {
+    "image": "/imgs/Books/Rich Dad Poor Dad (Robert Kiyosaki)/Rich Dad Poor Dad.jpg",
+    "description": "Rich Dad Poor Dad explores the differences between two fathers – one wealthy and one poor – and how their approaches to money and life shaped the author's financial understanding. It offers life-changing lessons on financial independence and investing.",
+    "genres": ["Personal Finance", "Self-Help", "Business"],
+    "year": 1997,
+    "author": "Robert Kiyosaki",
+    "pdfLink": "https://www.docdroid.net/Incp3Kq/rich-dad-poor-dad-pdf"
+  },
+  "To Kill a Mockingbird": {
+    "image": "/imgs/Books/To kill a Mockingbird (Harper Lee)/To kill a Mockingbird.jpg",
+    "description": "Set in the Depression-era South, To Kill a Mockingbird follows young Scout Finch as she witnesses her father, lawyer Atticus Finch, defend a black man accused of raping a white woman, exploring themes of racial injustice and moral growth.",
+    "genres": ["Classic", "Coming-of-Age", "Social Justice"],
+    "year": 1960,
+    "author": "Harper Lee",
+    "pdfLink": "https://www.raio.org/TKMFullText.pdf"
+  },
+  "Becoming": {
+    "image": "/imgs/Books/Becoming (Michelle Obama)/Becoming.jpg",
+    "description": "A deeply personal memoir by Michelle Obama, chronicling her roots in Chicago, her journey through Princeton and Harvard, her professional career, and her time as First Lady of the United States.",
+    "genres": ["Memoir", "Autobiography", "Political"],
+    "year": 2018,
+    "author": "Michelle Obama",
+    "pdfLink": "https://icrrd.com/public/media/15-05-2021-133541Becoming-Michelle-Obama.pdf"
+  },
+  "The Catcher in the Rye": {
+    "image": "/imgs/Books/The Catcher in the Rye (J.D. Salinger)/The Catcher in the Rye.jpg",
+    "description": "The Catcher in the Rye narrates the life of Holden Caulfield, a disillusioned teenager in New York City who is grappling with the pain of growing up and the complexities of adult society.",
+    "genres": ["Coming-of-Age", "Literary Fiction", "Classic"],
+    "year": 1951,
+    "author": "J.D. Salinger",
+    "pdfLink": "https://giove.isti.cnr.it/demo/eread/Libri/sad/Rye.pdf"
+  },
+  "The Secret": {
+    "image": "/imgs/Books/The Secret (Rhonda Byrne)/The Secret.jpg",
+    "description": "The Secret explores the law of attraction and how positive thinking can bring happiness, success, and wealth. It emphasizes the power of visualization and belief in achieving one's desires.",
+    "genres": ["Self-Help", "Spirituality", "Personal Development"],
+    "year": 2006,
+    "author": "Rhonda Byrne",
+    "pdfLink": "https://www.slideshare.net/slideshow/the-secret-by-rhonda-byrne-english/251193822"
+  },
+  "The Sand Child": {
+    "image": "/imgs/Books/The sand child (Tahar Benjelloune)/The Sand Child.jpg",
+    "description": "Set in Morocco, The Sand Child tells the story of a complex narrative exploring identity, gender, and societal expectations through a nuanced exploration of a child's life.",
+    "genres": ["Literary Fiction", "Cultural", "Philosophical"],
+    "year": 1985,
+    "author": "Tahar Ben Jelloun",
+    "pdfLink": "https://archive.org/details/sandchild00benj"
+  },
+  "War and Peace": {
+    "image": "/imgs/Books/War and Peace (Leo Tolstoy)/War and Peace (Leo Tolstoy).jpg",
+    "description": "An epic novel that intertwines the lives of Russian aristocratic families during the Napoleonic Era, exploring themes of love, war, history, and the philosophical meaning of life.",
+    "genres": ["Historical Fiction", "Classic", "Epic"],
+    "year": 1869,
+    "author": "Leo Tolstoy",
+    "pdfLink": "https://rauterberg.employee.id.tue.nl/lecturenotes/DDM110%20CAS/Orwell-1949%201984.pdf"
+  },
+  "The Alchemist": {
+    "image": "/imgs/Worl Books/The Alchemist (Paulo Coelho)/The Alchemist.jpg",
+    "description": "The Alchemist is an inspiring tale of Santiago, a shepherd boy who embarks on a journey to find a treasure hidden in the Egyptian pyramids, learning valuable life lessons about following one's dreams and listening to one's heart.",
+    "genres": ["Philosophical Fiction", "Adventure", "Spiritual"],
+    "year": 1988,
+    "author": "Paulo Coelho",
+    "pdfLink": "https://icrrd.com/public/media/15-05-2021-084550The-Alchemist-Paulo-Coelho.pdf"
+  },
+  "The Great Gatsby": {
+    "image": "/imgs/Worl Books/The Great Gatsby (F. Scott Fitzgerald)/The Great Gatsby.jpg",
+    "description": "Set in the Roaring Twenties, The Great Gatsby explores themes of wealth, love, and the American Dream through the eyes of Nick Carraway, a young man who is drawn into the world of his mysterious neighbor, Jay Gatsby.",
+    "genres": ["Classic", "Literary Fiction", "Romance"],
+    "year": 1925,
+    "author": "F. Scott Fitzgerald",
+    "pdfLink": "https://www.planetebook.com/free-ebooks/the-great-gatsby.pdf"
+  },
+  "The Hobbit": {
+    "image": "/imgs/Worl Books/The Hobbit (J.R.R. Rolkien)/The Hobbit.jpg",
+    "description": "The Hobbit is a high fantasy adventure that follows Bilbo Baggins, a hobbit who is swept into an epic quest to reclaim the Lonely Mountain and its treasure from the dragon Smaug. Along the way, he encounters trolls, elves, goblins, and an enchanted ring.",
+    "genres": ["Fantasy", "Adventure", "Classic"],
+    "year": 1937,
+    "author": "J.R.R. Tolkien",
+    "pdfLink": "https://rsd2-alert-durden-reading-room.weebly.com/uploads/6/7/1/6/6716949/the_hobbit_tolkien.pdf"
+  }
 }
+```
