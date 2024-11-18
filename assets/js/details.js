@@ -77,3 +77,23 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Failed to load book details. Please try again later.");
     });
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const searchBox = document.querySelector('.box');
+  const searchInput = searchBox.querySelector('.input');
+  const searchLabel = searchBox.querySelector('label');
+  const searchIcon = searchBox.querySelector('i');
+
+  searchInput.addEventListener('focus', () => {
+    searchIcon.classList.add('active');
+    searchLabel.style.opacity = '0';
+    searchLabel.style.transform = 'translateX(-10px)';
+  });
+
+  searchInput.addEventListener('blur', () => {
+    if (searchInput.value === '') {
+      searchIcon.classList.remove('active');
+      searchLabel.style.opacity = '0.7';
+      searchLabel.style.transform = 'translateX(0)';
+    }
+  });
+});
