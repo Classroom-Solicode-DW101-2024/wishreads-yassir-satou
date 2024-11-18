@@ -411,7 +411,6 @@ main {
   font-weight: bold;
   border: 2px solid var(--white);
   cursor: pointer;
-  border-radius: 5px;
 }
 
 .pdf-button:hover {
