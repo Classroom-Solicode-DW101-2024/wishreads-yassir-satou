@@ -17,16 +17,16 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // Update page elements with book details
+
       document.querySelector(".title").textContent = bookTitle;
       document.querySelector(".description").textContent = book.description;
       document.querySelector(".img").src = book.image;
       
-      // Update genres
+
       const genreContainer = document.querySelector(".tags");
       const genreSpans = genreContainer.querySelectorAll(".genre");
       
-      // Clear existing genres
+
       genreSpans.forEach((span, index) => {
         if (index < book.genres.length) {
           span.textContent = book.genres[index] + (index < book.genres.length - 1 ? ',' : '');
@@ -35,11 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
-      // Update year
+
       const yearSpan = document.querySelector(".year");
       yearSpan.textContent = book.year;
 
-      // Set up read button
+
       document.querySelector(".read-btn").onclick = () =>
         window.open(book.pdfLink, "_blank");
     })
