@@ -16,14 +16,14 @@
     "author": "Robert Kiyosaki",
     "pdfLink": "https://www.docdroid.net/Incp3Kq/rich-dad-poor-dad-pdf"
   },
-  "To Kill a Mockingbird": {
+ "To Kill a Mockingbird": {
     "image": "/imgs/Books/To kill a Mockingbird (Harper Lee)/To kill a Mockingbird.jpg",
-    "description": "Set in the Depression-era South, To Kill a Mockingbird follows young Scout Finch as she witnesses her father, lawyer Atticus Finch, defend a black man accused of raping a white woman, exploring themes of racial injustice and moral growth.",
+    "description": "Set in the Depression-era South, To Kill a Mockingbird follows young Scout Finch as she witnesses her father, lawyer Atticus Finch, defend a black man accused of raping a white woman, exploring themes of racial injustice, moral complexity, and coming of age.",
     "genres": ["Classic", "Coming-of-Age", "Social Justice"],
     "year": 1960,
     "author": "Harper Lee",
     "pdfLink": "https://www.raio.org/TKMFullText.pdf"
-  },
+},
   "Becoming": {
     "image": "/imgs/Books/Becoming (Michelle Obama)/Becoming.jpg",
     "description": "A deeply personal memoir by Michelle Obama, chronicling her roots in Chicago, her journey through Princeton and Harvard, her professional career, and her time as First Lady of the United States.",
@@ -40,29 +40,29 @@
     "author": "J.D. Salinger",
     "pdfLink": "https://giove.isti.cnr.it/demo/eread/Libri/sad/Rye.pdf"
   },
-  "The Secret": {
+ "The Secret": {
     "image": "/imgs/Books/The Secret (Rhonda Byrne)/The Secret.jpg",
-    "description": "The Secret explores the law of attraction and how positive thinking can bring happiness, success, and wealth. It emphasizes the power of visualization and belief in achieving one's desires.",
+    "description": "The Secret reveals the law of attraction, explaining how positive thinking and visualization can transform one's life. The book argues that by focusing on positive thoughts, individuals can attract wealth, health, and happiness, offering a philosophy of personal empowerment and manifestation.",
     "genres": ["Self-Help", "Spirituality", "Personal Development"],
     "year": 2006,
     "author": "Rhonda Byrne",
     "pdfLink": "https://www.slideshare.net/slideshow/the-secret-by-rhonda-byrne-english/251193822"
-  },
+},
   "The Sand Child": {
     "image": "/imgs/Books/The sand child (Tahar Benjelloune)/The Sand Child.jpg",
-    "description": "Set in Morocco, The Sand Child tells the story of a complex narrative exploring identity, gender, and societal expectations through a nuanced exploration of a child's life.",
+    "description": "A powerful novel exploring gender identity and societal expectations in Morocco, The Sand Child tells the story of Ahmed/Fatima, a girl raised as a boy to fulfill her father's desire for a male heir. The narrative delves into complex themes of gender, identity, and cultural constraints.",
     "genres": ["Literary Fiction", "Cultural", "Philosophical"],
     "year": 1985,
     "author": "Tahar Ben Jelloun",
     "pdfLink": "https://archive.org/details/sandchild00benj"
-  },
+},
   "War and Peace": {
     "image": "/imgs/Books/War and Peace (Leo Tolstoy)/War and Peace (Leo Tolstoy).jpg",
     "description": "An epic novel that intertwines the lives of Russian aristocratic families during the Napoleonic Era, exploring themes of love, war, history, and the philosophical meaning of life.",
     "genres": ["Historical Fiction", "Classic", "Epic"],
     "year": 1869,
     "author": "Leo Tolstoy",
-    "pdfLink": "https://rauterberg.employee.id.tue.nl/lecturenotes/DDM110%20CAS/Orwell-1949%201984.pdf"
+    "pdfLink": "https://antilogicalism.com/wp-content/uploads/2017/07/war-and-peace.pdf"
   },
   "The Alchemist": {
     "image": "/imgs/Worl Books/The Alchemist (Paulo Coelho)/The Alchemist.jpg",
