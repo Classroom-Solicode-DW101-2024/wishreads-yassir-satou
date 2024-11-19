@@ -295,18 +295,18 @@ nav a.active {
   padding: 0.5rem 1rem;
   border-radius: 4rem;
   border: 2px solid var(--citrine);
-  cursor: pointer;
+  font-weight: bold;
   transition: all 0.3s ease;
   font-weight: var(--fw-500);
   letter-spacing: 1px;
 }
-.add-wishlist {
-  background-color: var(--red);
+.add-wishlist:hover {
+  background-color: var(--citrine);
   transform: translateY(-5px);
+  color: var(--black);
   border-color: var(--white);
 }
 .add-wishlist i {
-  color: var(--white);
   margin-right: 0.5rem;
   transition: transform 0.3s ease;
 }
