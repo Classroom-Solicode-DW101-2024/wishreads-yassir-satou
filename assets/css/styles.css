@@ -93,7 +93,6 @@ header {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-
 .nav {
   display: flex;
   gap: 15px;
@@ -133,15 +132,19 @@ nav a.active {
 .navbar i {
   cursor: pointer;
 }
+
 .box {
   position: relative;
   display: flex;
   align-items: center;
 }
-
+.fas fa-search {
+  color: var(--white);
+  display: none;
+}
 .input {
   width: 180px;
-  height: 40px; /* Adjusted to match navbar height */
+  height: 40px;
   background: transparent;
   border: 2px solid var(--citrine);
   border-radius: 20px;
@@ -151,28 +154,15 @@ nav a.active {
   color: var(--white);
   outline: none;
   padding: 0 15px;
- 
-}
-
-.box:hover .input {
-  background: var(--gunmetal-1);
 }
 
 .box i {
-  position: absolute;margin-left: 2px;
-  color: var(--citrine);
+  position: absolute;
+  margin-left: 2px;
+  color: var(--white);
   transition: all 0.2s ease;
   cursor: pointer;
   margin-left: 0.75rem;
-
-}
-
-.box:hover i {
-  opacity: 0.7;
-  display: none;
-}
-.box i.active{
-  display: none;
 }
 
 .logo img {
@@ -335,7 +325,7 @@ main {
 
 .top_books_Head p {
   color: var(--citrine);
-  margin-bottom: 10px;
+  margin-top: 100px;
 }
 
 .top_books_Head h2 {
@@ -393,7 +383,7 @@ main {
   left: 10%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  background: linear-gradient(to bottom, white 10%, hsl(0, 73%, 26%) 90%);
+  background: var(--red);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 40px;

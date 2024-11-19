@@ -109,11 +109,7 @@ nav a.active {
   position: absolute;
   left: 34px;
   top: 14px;
-<<<<<<< HEAD
   color: #d1d5db;
-=======
-color: #d1d5db;
->>>>>>> b30dceb6eac07207b6e079b1b8f905a5c773870c
   pointer-events: none;
   transition: all 0.3s ease;
   font-size: var(--fs-7);
@@ -139,7 +135,6 @@ color: #d1d5db;
   color: var(--white);
   outline: none;
   padding: 0 15px;
- 
 }
 
 .box:hover .input {
@@ -147,7 +142,8 @@ color: #d1d5db;
 }
 
 .box i {
-  position: absolute;margin-left: 2px;
+  position: absolute;
+  margin-left: 2px;
   color: var(--citrine);
   transition: all 0.2s ease;
   cursor: pointer;
@@ -158,7 +154,7 @@ color: #d1d5db;
   opacity: 0.7;
   display: none;
 }
-.box i.active{
+.box i.active {
   display: none;
 }
 .logo img {
