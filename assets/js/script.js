@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Book navigation functionality
-    const bookCards = document.querySelectorAll('.book');
-    const wishlistButtons = document.querySelectorAll('#towishlist');
+    const bookCards = document.querySelectorAll('.book, .world_book');
 
     // Load existing wishlist from localStorage
     let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
@@ -9,39 +8,65 @@ document.addEventListener('DOMContentLoaded', () => {
     // Book card click navigation
     bookCards.forEach(card => {
         card.addEventListener('click', (e) => {
+            // Prevent navigation if clicking on wishlist button
+            if (e.target.id === 'towishlist' || e.target.closest('#towishlist')) return;
+            
             const bookTitle = card.querySelector('h5').textContent;
             window.location.href = `details.html?bookTitle=${encodeURIComponent(bookTitle)}`;
         });
     });
 
     // Add to wishlist functionality
-    wishlistButtons.forEach((button, index) => {
-        button.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevent triggering book details page
-            const bookCard = bookCards[index];
+    bookCards.forEach(bookCard => {
+        const wishlistButton = bookCard.querySelector('#towishlist');
+        
+        if (wishlistButton) {
             const bookTitle = bookCard.querySelector('h5').textContent;
             const bookAuthor = bookCard.querySelector('p').textContent;
             const bookImage = bookCard.querySelector('img').src;
-            const bookPdfLink = bookCard.querySelector('.pdf-button').getAttribute('href');
-
+            
             // Check if book is already in wishlist
             const isBookInWishlist = wishlist.some(book => book.title === bookTitle);
 
-            if (!isBookInWishlist) {
-                const bookToAdd = {
-                    title: bookTitle,
-                    author: bookAuthor,
-                    image: bookImage,
-                    pdfLink: bookPdfLink
-                };
-
-                wishlist.push(bookToAdd);
-                localStorage.setItem('wishlist', JSON.stringify(wishlist));
-                alert(`${bookTitle} added to wishlist!`);
-            } else {
-                alert(`${bookTitle} is already in your wishlist!`);
+            // Update button state based on wishlist status
+            if (isBookInWishlist) {
+                wishlistButton.textContent = '✓';
+                wishlistButton.disabled = true;
+                wishlistButton.style.backgroundColor = 'green';
             }
-        });
+
+            // Add click event listener
+            wishlistButton.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent triggering book details page
+
+                // Find PDF link specifically for this book
+                const bookPdfLink = bookCard.querySelector('.pdf-button')?.getAttribute('href');
+
+                // Check if book is already in wishlist
+                const isBookInWishlist = wishlist.some(book => book.title === bookTitle);
+
+                if (!isBookInWishlist) {
+                    const bookToAdd = {
+                        title: bookTitle,
+                        author: bookAuthor,
+                        image: bookImage,
+                        pdfLink: bookPdfLink
+                    };
+
+                    wishlist.push(bookToAdd);
+                    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                    
+                    // Update button state
+                    wishlistButton.textContent = '✓';
+                    wishlistButton.disabled = true;
+                    wishlistButton.style.backgroundColor = 'green';
+
+                    alert(`${bookTitle} added to wishlist!`);
+                } else {
+                    alert(`${bookTitle} is already in your wishlist!`);
+                }
+            });
+        }
     });
 
     // Search functionality
@@ -58,8 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function findMatchingBooks(searchTerm) {
         const normalizedSearch = normalizeText(searchTerm);
         
-        // Get all book titles
-        const bookTitles = Array.from(document.querySelectorAll('.book h5'))
+        // Get all book titles from both .book and .world_book classes
+        const bookTitles = Array.from(document.querySelectorAll('.book h5, .world_book h5'))
             .map(el => el.textContent);
 
         // Find matches
@@ -103,4 +128,31 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('No books found. Please try another search term.');
         }
     });
+
+    // Prevent duplicate wishlist entries on page load
+    function preventDuplicateWishlistEntries() {
+        const wishlistTitles = new Set(wishlist.map(book => book.title));
+        const bookTitles = Array.from(document.querySelectorAll('.book h5, .world_book h5'))
+            .map(el => el.textContent);
+
+        bookTitles.forEach(title => {
+            if (wishlistTitles.has(title)) {
+                const bookCard = Array.from(bookCards).find(card => 
+                    card.querySelector('h5').textContent === title
+                );
+                
+                if (bookCard) {
+                    const wishlistButton = bookCard.querySelector('#towishlist');
+                    if (wishlistButton) {
+                        wishlistButton.textContent = '✓';
+                        wishlistButton.disabled = true;
+                        wishlistButton.style.backgroundColor = 'green';
+                    }
+                }
+            }
+        });
+    }
+
+    // Call the function to prevent duplicate entries
+    preventDuplicateWishlistEntries();
 });
