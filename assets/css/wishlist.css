@@ -59,6 +59,15 @@ header {
   padding: 20px 40px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+.logo img {
+  height: 50px;
+  width: 150px;
+  transition: transform var(--transition-2);
+}
+
+.logo img:hover {
+  transform: scale(1.1);
+}
 
 .nav {
   display: flex;
@@ -320,8 +329,7 @@ hr {
 }
 
 .pdf-button {
-  display: inline-block;
-  margin-right: 110px;
+  text-align: center;
   padding: 7px 12px;
   background-color: transparent;
   color: var(--citrine);
@@ -339,20 +347,18 @@ hr {
   color: var(--white);
   border: none;
   padding: 0.5rem 1rem;
-  border-radius: 4px;
+  border-radius: 20px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
   gap: 0.5rem;
   transition: all 0.3s ease;
-  font-weight: var(--fw-500);
+  font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .remove-btn:hover {
-  background-color: #d32f2f; /* Darker red on hover */
+  background-color: #d32f2f;
   transform: translateY(-3px);
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
@@ -401,11 +407,11 @@ hr {
 
 @keyframes slideIn {
   from {
-      opacity: 0;
-      transform: translate(-50%, -20px);
+    opacity: 0;
+    transform: translate(-50%, -20px);
   }
   to {
-      opacity: 1;
-      transform: translate(-50%, 0);
+    opacity: 1;
+    transform: translate(-50%, 0);
   }
 }

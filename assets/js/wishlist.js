@@ -1,32 +1,32 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Load wishlist from localStorage
-    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+document.addEventListener("DOMContentLoaded", () => {
+  // Load wishlist from localStorage
+  let wishlist = JSON.parse(localStorage.getItem("wishlist"));
 
-    const booksContainer = document.querySelector('.books');
+  const booksContainer = document.querySelector(".books");
 
-    // Function to render wishlist
-    function renderWishlist() {
-        // Clear existing books
-        booksContainer.innerHTML = '';
+  // Function to render wishlist
+  function renderWishlist() {
+    // Clear existing books
+    booksContainer.innerHTML = "";
 
-        // Check if wishlist is empty
-        if (wishlist.length === 0) {
-            const emptyMessage = document.createElement('div');
-            emptyMessage.classList.add('empty-wishlist');
-            emptyMessage.innerHTML = `
+    // Check if wishlist is empty
+    if (wishlist.length === 0) {
+      const emptyMessage = document.createElement("div");
+      emptyMessage.classList.add("empty-wishlist");
+      emptyMessage.innerHTML = `
                 <h2>Your Wishlist is Empty</h2>
                 <p>Explore our collection and add some books!</p>
                 <a href="index.html" class="explore-btn">Explore Books</a>
             `;
-            booksContainer.appendChild(emptyMessage);
-            return;
-        }
+      booksContainer.appendChild(emptyMessage);
+      return;
+    }
 
-        // Render books
-        wishlist.forEach((book, index) => {
-            const bookElement = document.createElement('div');
-            bookElement.classList.add('book');
-            bookElement.innerHTML = `
+    // Render books
+    wishlist.forEach((book, index) => {
+      const bookElement = document.createElement("div");
+      bookElement.classList.add("book");
+      bookElement.innerHTML = `
                 <div class="image_container">
                     <img src="${book.image}" alt="${book.title}" />
                 </div>
@@ -39,48 +39,43 @@ document.addEventListener('DOMContentLoaded', () => {
                     <i class="fa-solid fa-trash"></i> Remove from Wishlist
                 </button>
             `;
-            booksContainer.appendChild(bookElement);
-        });
+      booksContainer.appendChild(bookElement);
+    });
 
-        // Add event listeners to remove buttons
-        const removeButtons = document.querySelectorAll('.remove-btn');
-        removeButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const index = button.getAttribute('data-index');
-                removeFromWishlist(index);
-            });
-        });
-    }
+    // Add event listeners to remove buttons
+    const removeButtons = document.querySelectorAll(".remove-btn");
+    removeButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const index = button.getAttribute("data-index");
+        removeFromWishlist(index);
+      });
+    });
+  }
 
-    // Function to remove book from wishlist
-    function removeFromWishlist(index) {
-        // Remove book at specified index
-        const removedBook = wishlist[index];
-        wishlist.splice(index, 1);
+  // Function to remove book from wishlist
+  function removeFromWishlist(index) {
+    // Remove book at specified index
+    const removedBook = wishlist[index];
+    wishlist.splice(index, 1);
 
-        // Update localStorage
-        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    // Update localStorage
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
 
-        // Re-render wishlist
-        renderWishlist();
-
-        // Optional: Show removal confirmation
-        showNotification(`${removedBook.title} removed from wishlist`);
-    }
-
-    // Notification function
-    function showNotification(message) {
-        const notification = document.createElement('div');
-        notification.classList.add('notification');
-        notification.textContent = message;
-        document.body.appendChild(notification);
-
-        setTimeout(() => {
-            notification.remove();
-        }, 3000);
-    }
-
-    // Initial render
+    // Re-render wishlist
     renderWishlist();
-});
 
+    // Optional: Show removal confirmation
+    showNotification(`${removedBook.title} removed from wishlist`);
+  }
+
+  // Notification function
+  function showNotification(message) {
+    const notification = document.createElement("div");
+    notification.classList.add("notification");
+    notification.textContent = message;
+    document.body.appendChild(notification);
+  }
+
+  // Initial render
+  renderWishlist();
+});
