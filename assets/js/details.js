@@ -4,17 +4,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.querySelector('.input');
   const searchForm = document.querySelector('form[name="search"]');
   const wishlistBtn = document.querySelector('.add-wishlist');
+  const readBtn = document.querySelector('.read-btn');
+  const viewLinkBtn = document.querySelector('.view-link');
+  const shareBtn = document.querySelector('.share-btn');
 
   // Fetch books from the JSON file
   fetch("/assets/js/data.json")
     .then(response => response.json())
     .then(books => {
       // Initial book display or search handling
+      let currentBook = null;
       if (bookTitle) {
         // If a book title is in the URL, display its details
-        const book = findBookByTitle(books, bookTitle);
-        displayBookDetails(book);
-        checkWishlistStatus(book);
+        currentBook = findBookByTitle(books, bookTitle);
+        displayBookDetails(currentBook);
+        checkWishlistStatus(currentBook);
       }
 
       // Search functionality
@@ -31,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (matchedBook) {
           // Update URL and display book details
           history.pushState(null, '', `/assets/html/details.html?title=${encodeURIComponent(matchedBook.title)}`);
+          currentBook = matchedBook;
           displayBookDetails(matchedBook);
           checkWishlistStatus(matchedBook);
         } else {
@@ -54,7 +59,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Wishlist button event listener
       if (wishlistBtn) {
-        wishlistBtn.addEventListener('click', () => handleAddToWishlist(findBookByTitle(books, bookTitle)));
+        wishlistBtn.addEventListener('click', () => handleAddToWishlist(currentBook));
+      }
+
+      // Read button event listener
+      if (readBtn) {
+        readBtn.addEventListener('click', () => {
+          if (currentBook.pdfLink) {
+            window.open(currentBook.pdfLink, '_blank');
+          } else {
+            alert('PDF link not available for this book.');
+          }
+        });
+      }
+
+      // View Link button event listener
+      if (viewLinkBtn) {
+        viewLinkBtn.addEventListener('click', () => {
+          if (currentBook.pdfLink) {
+            window.open(currentBook.pdfLink, '_blank');
+          } else {
+            alert('PDF link not available for this book.');
+          }
+        });
+      }
+
+      // Share button event listener
+      if (shareBtn) {
+        shareBtn.addEventListener('click', () => {
+          // Check if the Web Share API is supported
+          if (navigator.share) {
+            // Prepare share data
+            const shareData = {
+              title: currentBook.title,
+              text: `Check out this book: ${currentBook.title} by ${currentBook.author.name}`,
+              url: window.location.href
+            };
+
+            // Use Web Share API
+            navigator.share(shareData)
+              .then(() => {
+                console.log('Book shared successfully');
+              })
+              .catch((error) => {
+                console.error('Error sharing book:', error);
+                fallbackShare(currentBook);
+              });
+          } else {
+            // Fallback for browsers that don't support Web Share API
+            fallbackShare(currentBook);
+          }
+        });
       }
     })
     .catch(error => {
@@ -65,6 +120,29 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `;
     });
+
+  // Fallback share method
+  function fallbackShare(book) {
+    // Create a temporary textarea to copy text
+    const tempInput = document.createElement('textarea');
+    tempInput.value = `Check out this book: ${book.title} by ${book.author.name}
+    
+Read more at: ${window.location.href}`;
+    
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    
+    try {
+      // Copy text to clipboard
+      document.execCommand('copy');
+      alert('Book details copied to clipboard! You can now share it.');
+    } catch (err) {
+      console.error('Unable to copy text', err);
+      alert('Unable to share. Please manually copy the book details.');
+    }
+    
+    document.body.removeChild(tempInput);
+  }
 
   // Check if book is in wishlist and update button
   function checkWishlistStatus(book) {
@@ -112,53 +190,57 @@ document.addEventListener("DOMContentLoaded", () => {
       alert('This book is already in your wishlist.');
     }
   }
-});
 
-// Helper function to find book by title
-function findBookByTitle(books, title) {
-  const book = books.find(b => b.title === title);
-  if (!book) {
-    throw new Error('Book not found');
+  // Helper function to find book by title
+  function findBookByTitle(books, title) {
+    const book = books.find(b => b.title === title);
+    if (!book) {
+      throw new Error('Book not found');
+    }
+    return book;
   }
-  return book;
-}
 
-function displayBookDetails(book) {
-  // Populate the details page with the book's information
-  document.querySelector('.title').textContent = book.title;
-  document.querySelector('.description').textContent = book.description;
-  document.querySelector('.poster img').src = book.image;
-  document.querySelector('.poster img').alt = book.title;
-  
-  // Update author information
-  const authorElement = document.querySelector('.author');
-  if (authorElement) {
+  // Function to display book details
+  function displayBookDetails(book) {
+    // Populate the details page with the book's information
+    document.querySelector('.title').textContent = book.title;
+    document.querySelector('.description').textContent = book.description;
+    
+    // Set image
+    const imgElement = document.querySelector('.poster img');
+    imgElement.src = book.image;
+    imgElement.alt = book.title;
+    
+    // Update tags (genres, year, etc.)
+    const tagsContainer = document.querySelector('.tags');
+    tagsContainer.innerHTML = ''; // Clear existing tags
+    
+    // Add PDF tag
+    const pdfTag = document.createElement('span');
+    pdfTag.classList.add('pdf-tag');
+    pdfTag.textContent = 'PDF';
+    tagsContainer.appendChild(pdfTag);
+    
+    // Add genres
+    if (book.genres && book.genres.length > 0) {
+      book.genres.forEach(genre => {
+        const genreTag = document.createElement('span');
+        genreTag.classList.add('genre');
+        genreTag.textContent = genre;
+        tagsContainer.appendChild(genreTag);
+      });
+    }
+    
+    // Add year
+    const yearTag = document.createElement('span');
+    yearTag.classList.add('year');
+    yearTag.textContent = book.year || 'N/A';
+    tagsContainer.appendChild(yearTag);
+
+    // Add author information
+    const authorElement = document.createElement('p');
+    authorElement.classList.add('author');
     authorElement.textContent = `By ${book.author.name}`;
+    document.querySelector('.content').insertBefore(authorElement, document.querySelector('.tags'));
   }
-  
-  // Update tags (genres, year, etc.)
-  const tagsContainer = document.querySelector('.tags');
-  tagsContainer.innerHTML = ''; // Clear existing tags
-  
-  // Add genres
-  if (book.genres && book.genres.length > 0) {
-    book.genres.forEach(genre => {
-      const genreTag = document.createElement('span');
-      genreTag.classList.add('genre');
-      genreTag.textContent = genre;
-      tagsContainer.appendChild(genreTag);
-    });
-  }
-  
-  // Add year
-  const yearTag = document.createElement('span');
-  yearTag.classList.add('year');
-  yearTag.textContent = book.year || 'N/A';
-  tagsContainer.appendChild(yearTag);
-
-  // Set PDF link
-  const viewLinkBtn = document.querySelector('.view-link');
-  if (viewLinkBtn) {
-    viewLinkBtn.href = book.pdfLink;
-  }
-}
+});
