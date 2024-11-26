@@ -404,40 +404,7 @@ main {
   width: 100%;
   height: auto;
 }
-.image_container i {
-  position: absolute;
-  top: 88%;
-  left: 10%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  background: var(--red);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 40px;
-  padding: 12px;
-  border: none;
-  border-radius: 5px;
-}
-#towishlist {
-  position: absolute;
-  top: 85%;
-  left: 15%;
-  transform: translate(-50%, -50%);
-  color: var(--white);
-  background-color: rgb(22, 97, 22);
-  height: 30px;
-  width: 30px;
-  font-size: 18px;
-  padding: 0;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
 
-#towishlist:hover {
-  background-color: rgb(41, 184, 41);
-}
 
 .book img {
   width: 100%;
@@ -715,4 +682,23 @@ hr {
   width: 200px;
   height: 50px;
   height: auto;
+}
+.add-to-wishlist {
+  position: absolute; /* Position absolute to place it correctly */
+  bottom: 10px; /* Adjust as needed */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center adjustment */
+  background-color: var(--citrine);
+  color: var(--black);
+  border: 2px solid var(--black);
+  padding: 10px 15px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.add-to-wishlist:hover {
+  background-color: var(--black); /* Change background on hover */
+  color: var(--citrine); /* Change text color on hover *//* Slightly enlarge on hover */
 }
