@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="image_container">
             <img src="${book.image}" alt="${book.title}" />
             <button class="remove-from-wishlist" data-index="${index}">
-              <i class="fas fa-trash"></i>
+            <i class="fa-solid fa-trash-can"></i>
             </button>
           </div>
           <div class="book-details">

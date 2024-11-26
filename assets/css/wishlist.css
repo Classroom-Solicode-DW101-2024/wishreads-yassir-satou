@@ -338,9 +338,9 @@ hr {
 }
 
 .remove-from-wishlist {
-  background-color: transparent;
-  border: 2px solid var(--red);
-  color: var(--red);
+background-color: #ffc107;
+  border: 1px solid var(--red);
+  color: var(--white);
   padding: 8px 12px;
   border-radius: 25px;
   cursor: pointer;
@@ -360,9 +360,7 @@ hr {
   transform: scale(1.05);
 }
 
-.remove-from-wishlist i {
-  margin-right: 5px;
-}
+
 
 .wishlist-actions {
   display: flex;
