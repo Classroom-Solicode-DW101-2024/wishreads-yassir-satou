@@ -405,7 +405,6 @@ main {
   height: auto;
 }
 
-
 .book img {
   width: 100%;
   height: 400px;
@@ -684,10 +683,10 @@ hr {
   height: auto;
 }
 .add-to-wishlist {
-  position: absolute; /* Position absolute to place it correctly */
-  bottom: 10px; /* Adjust as needed */
-  left: 50%; /* Center horizontally */
-  transform: translateX(-50%); /* Center adjustment */
+  position: absolute; 
+  bottom: 20px; 
+  left: -98%; 
+  transform: translateX(-50%);
   background-color: var(--citrine);
   color: var(--black);
   border: 2px solid var(--black);
