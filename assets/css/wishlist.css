@@ -374,13 +374,14 @@ background-color: #ffc107;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 15px;
+  padding: 5px 10px;
   border: 2px solid black;
   border-radius: 25px;
   font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0px;
   transition: all 0.3s ease;
+  margin-left: -9px;
 }
 
 .view-details {
